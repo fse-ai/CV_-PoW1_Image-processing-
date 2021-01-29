@@ -44,7 +44,7 @@ To create a gaussian filter:
 
 2. Calculate the density using the formula of **Univariate Normal Distribution** on each element in the vector.
 
-    ![gaussian-equation.svg](https://github.com/fse-ai/CV_PoW1_Image-processing/blob/master/resources/images/gaussian-equation.svg)
+    ![gaussian-equation.svg](resources/images/gaussian-equation.svg)
 
 3. Compute the outer product of the vector with itself and store it in a new variable named `kernel_2D`.
 
