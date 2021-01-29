@@ -26,7 +26,9 @@ The result of the average smoothing is shown below:
 
 A gaussian filter is a linear filter used to blur an image and to reduce its noise like the mean filter. The mean filter tends to reduce noise while keeping the edges relatively sharp when compared to the gaussian filter. Gaussian filters are applied over an image using a filter made with gaussian function:
 
-$$ {\displaystyle G(x,y)={\frac {1}{2\pi \sigma ^{2}}}e^{-{\frac {x^{2}+y^{2}}{2\sigma ^{2}}}}} $$
+```math
+{\displaystyle G(x,y)={\frac {1}{2\pi \sigma ^{2}}}e^{-{\frac {x^{2}+y^{2}}{2\sigma ^{2}}}}}
+```
 
 A gaussian filter of kernel size 9 looks like this.
 
@@ -44,7 +46,9 @@ To create a gaussian filter:
 
 2. Calculate the density using the formula of **Univariate Normal Distribution** on each element in the vector.
 
-    $$ {\displaystyle f(x) = \frac {1}{\sigma{\sqrt {2 \pi}}} e ^ { { -\frac{1}{2} } ( \frac{x - \mu} {\sigma} ) ^ 2 } } $$
+    ```math
+    {\displaystyle f(x) = \frac {1}{\sigma{\sqrt {2 \pi}}} e ^ { { -\frac{1}{2} } ( \frac{x - \mu} {\sigma} ) ^ 2 } }
+    ```
 
 3. Compute the outer product of the vector with itself and store it in a new variable named `kernel_2D`.
 
