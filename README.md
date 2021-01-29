@@ -12,13 +12,13 @@ A digital image can be viewed as a two-dimensional function f (x, y), and the x-
 
 Mean filtering is a simple, intuitive and easy to implement method of smoothing images, i.e. reducing the amount of intensity variation between one pixel and the next. It is often used to reduce noise in images. The idea of mean filtering is simply to replace each pixel value in an image with the mean (average) value of its neighbors, including itself. This has the effect of eliminating pixel values which are unrepresentative of their surroundings. Mean filtering is usually thought of as a convolution filter. Like other convolutions it is based around a kernel, which represents the shape and size of the neighborhood to be sampled when calculating the mean. Often a 3×3 square kernel is used, as shown in the figure below.
 
-![mean-filter.png](https://github.com/fse-ai/CV_PoW1_Image-processing/blob/master/resources/images/mean-filter-kernel.png)
+![mean-filter.png](resources/images/mean-filter-kernel.png)
 
 Note that this filtering is also called 'Low pass filter' and 'image blurring'. This is because the effect is to average out rapid changes in pixel intensity. The blur, or smoothing, of an image removes “outlier” pixels that may be noise in the image. Blurring is an example of applying a low-pass filter to an image. In computer vision, the term “low-pass filter” applies to removing noise from an image while leaving the majority of the image intact. A blur is a very common operation we need to perform before other tasks such as edge detection.
 
 The result of the average smoothing is shown below:
 
-![mean-filter-example.png](https://github.com/fse-ai/CV_PoW1_Image-processing/blob/master/resources/images/mean-filter-example.png)
+![mean-filter-example.png](resources/images/mean-filter-example.png)
 
 ---
 
@@ -26,17 +26,17 @@ The result of the average smoothing is shown below:
 
 A gaussian filter is a linear filter used to blur an image and to reduce its noise like the mean filter. The mean filter tends to reduce noise while keeping the edges relatively sharp when compared to the gaussian filter. Gaussian filters are applied over an image using a filter made with gaussian function:
 
-![normal-distribution.svg](https://github.com/fse-ai/CV_PoW1_Image-processing/blob/master/resources/images/normal-distribution.svg)
+![normal-distribution.svg](resources/images/normal-distribution.svg)
 
 A gaussian filter of kernel size 9 looks like this.
 
-![gaussian-filter.png](https://github.com/fse-ai/CV_PoW1_Image-processing/blob/master/resources/images/gaussian-filter-kernel.png)
+![gaussian-filter.png](resources/images/gaussian-filter-kernel.png)
 
 Applying a Gaussian blur has the effect of reducing the image's high-frequency components, thus it is a low pass filter.
 
 The result of the gaussian filter is shown below:
 
-![gaussian-filter-example.png](https://github.com/fse-ai/CV_PoW1_Image-processing/blob/master/resources/images/gaussian-filter-example.png)
+![gaussian-filter-example.png](resources/images/gaussian-filter-example.png)
 
 To create a gaussian filter:
 
@@ -62,7 +62,7 @@ Thresholding is a type of image segmentation, where we change the pixels of an i
 
 Consider the given image 'gems' and suppose we want to select only the coloured shapes from the grey background of the image. So we have to select the pixels belonging to the shapes 'on', while turning the rest of the pixels 'off', by setting their color channel values to zeros. This can be done providing a threshold manually. All pixels with values smaller than the threshold can be turned 'on' by using a comparison operator <, to compare the blurred image blur to the threshold which returns a binary image called the mask. It has only one channel, and each of its values is either 0 or 1. Here is a visualization of the binary image created by the thresholding operation. Finally, applying the mask to the original colored image would result in an image where the gems are extracted and rest of the image as black.
 
-![threshold-example.png](https://github.com/fse-ai/CV_PoW1_Image-processing/blob/master/resources/images/threshold-example.png)
+![threshold-example.png](resources/images/threshold-example.png)
 
 #### Prerequisites
 
