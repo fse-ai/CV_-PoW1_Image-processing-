@@ -26,11 +26,13 @@ The result of the average smoothing is shown below:
 
 A gaussian filter is a linear filter used to blur an image and to reduce its noise like the mean filter. The mean filter tends to reduce noise while keeping the edges relatively sharp when compared to the gaussian filter. Gaussian filters are applied over an image using a filter made with gaussian function:
 
-![normal-distribution.svg](resources/images/normal-distribution.svg)
+![normal-distribution.svg](resources/images/gaussian-equation.svg)
 
 A gaussian filter of kernel size 9 looks like this.
 
 ![gaussian-filter.png](resources/images/gaussian-filter-kernel.png)
+
+From the image above you can see that the highest values in the kernel are concentrated in the center and they decrease gradually towards the edges.
 
 Applying a Gaussian blur has the effect of reducing the image's high-frequency components, thus it is a low pass filter.
 
@@ -42,15 +44,31 @@ To create a gaussian filter:
 
 1. Create a numpy vector using linspace method with start = `-(kernel_size // 2)` and end = `(kernel_size // 2 and)`. The number of samples must be equal to `kernel_size`.
 
-2. Calculate the density using the formula of **Univariate Normal Distribution** on each element in the vector.
+2. Calculate the density using the formula of **Normal Distribution** on each element in the vector.
 
-    ![gaussian-equation.svg](resources/images/gaussian-equation.svg)
+    ![normal-distribution.svg](resources/images/normal-distribution.svg)
+
+    keep σ = `kernel_size` and µ = 0. 'x' is each element in the 1D array.
 
 3. Compute the outer product of the vector with itself and store it in a new variable named `kernel_2D`.
 
 4. Normalize the values of `kernel_2D` from `0` to `1`.
 
 Your gaussian filter must be ready by now.
+
+You can manually create a simple gaussian filter like:
+
+```
+kernel_1D = np.array([1, 2, 3, 2, 1])
+kernel_2D = np.outer(a5, a5)
+print(kernel_2D)
+
+[[1 2 3 2 1]
+ [2 4 6 4 2]
+ [3 6 9 6 3]
+ [2 4 6 4 2]
+ [1 2 3 2 1]]
+```
 
 Convert the image to grayscale, apply padding and traverse through the image to apply the gaussian filter.
 
